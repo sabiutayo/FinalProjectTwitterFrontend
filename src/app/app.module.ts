@@ -1,21 +1,25 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { AngularMaterialModule } from './angular-material.module';
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { LogInComponent } from './components/log-in/log-in.component';
-import { RegisterComponent } from './components/register/register.component';
-import { FlexLayoutModule } from '@angular/flex-layout';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {BrowserModule} from '@angular/platform-browser';
+import {AngularMaterialModule} from './angular-material.module';
+import {NgModule, CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
+import {AppComponent} from './app.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {LogInComponent} from './components/log-in/log-in.component';
+import {RegisterComponent} from './components/register/register.component';
+import {FlexLayoutModule} from '@angular/flex-layout';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {AppRoutingModule} from './app-routing.module';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import {HttpClientModule} from '@angular/common/http';
+import {LoginServiceService} from './service/login-service.service';
+import {RegisterService} from './service/register.service';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     LogInComponent,
     RegisterComponent,
-    RegisterComponent,
-    LogInComponent
+    LogInComponent,
   ],
   imports: [
     BrowserModule,
@@ -25,10 +29,14 @@ import {AppRoutingModule} from './app-routing.module';
     ReactiveFormsModule,
     FormsModule,
     FlexLayoutModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatSlideToggleModule,
+    HttpClientModule
+
   ],
-  providers: [],
+  providers: [LoginServiceService, RegisterService],
   bootstrap: [AppComponent],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA ]
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
-export class AppModule { }
+export class AppModule {
+}

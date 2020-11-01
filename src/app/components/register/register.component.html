@@ -2,34 +2,38 @@
 
   <mat-card class="box">
     <mat-card-header>
-      <mat-card-title>Register</mat-card-title>
+      <mat-card-title>RegisterAccount</mat-card-title>
     </mat-card-header>
+    <mat-card-content>
+      <mat-form-field class="example-full-width">
+        <input type="text" class="form-control" [defaultValue]="" [(ngModel)]="user.username"
+               [ngModelOptions]="{standalone: true}" matInput placeholder="Username">
+      </mat-form-field>
 
-    <form class="example-form">
+      <mat-form-field class="example-full-width">
+        <input [(ngModel)]="user.displayName" [ngModelOptions]="{standalone: true}" matInput
+               placeholder="Display Name">
+      </mat-form-field>
 
-      <mat-card-content>
-        <mat-form-field class="example-full-width">
-          <input matInput placeholder="Username">
-        </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <input [(ngModel)]="user.email" [ngModelOptions]="{standalone: true}" matInput placeholder="Email">
+      </mat-form-field>
 
-        <mat-form-field class="example-full-width">
-          <input matInput placeholder="Display Name">
-        </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <input [(ngModel)]="user.password" [ngModelOptions]="{standalone: true}" matInput placeholder="Password">
+      </mat-form-field>
 
-        <mat-form-field class="example-full-width">
-          <input matInput placeholder="Email">
-        </mat-form-field>
-
-        <mat-form-field class="example-full-width">
-          <input matInput placeholder="Password">
-        </mat-form-field>
-
-        <mat-form-field class="example-full-width">
-          <input matInput placeholder="Confirm Password">
-        </mat-form-field>
-
-      </mat-card-content>
-      <button mat-stroked-button color="black" class="btn-block">Register</button>
-    </form>
+      <mat-form-field class="example-full-width">
+        <input [(ngModel)]="user.confirmPassword" [ngModelOptions]="{standalone: true}" matInput
+               placeholder="Confirm Password">
+      </mat-form-field>
+      <!--<mat-form-field class="example-full-width">
+        <mat-slide-toggle [(ngModel)]="isPrivate" >Private
+        </mat-slide-toggle>
+      </mat-form-field>-->
+      <button type='submit' (click)="onSubmit()" mat-stroked-button color="black" class="btn-block"
+              style="width: fit-content">RegisterAccount
+      </button>
+    </mat-card-content>
   </mat-card>
 </div>
