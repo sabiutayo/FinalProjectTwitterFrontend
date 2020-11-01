@@ -12,6 +12,7 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {HttpClientModule} from '@angular/common/http';
 import {LoginServiceService} from './service/login-service.service';
 import {RegisterService} from './service/register.service';
+import {HomeComponent} from './components/home/home.component';
 
 
 @NgModule({
@@ -19,7 +20,7 @@ import {RegisterService} from './service/register.service';
     AppComponent,
     LogInComponent,
     RegisterComponent,
-    LogInComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
