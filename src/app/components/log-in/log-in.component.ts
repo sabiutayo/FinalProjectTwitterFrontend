@@ -16,12 +16,11 @@ export class LogInComponent implements OnInit {
   constructor(private loginService: LoginServiceService) { }
 
   ngOnInit(): void {
-  this.user.email='';
-  this.user.password='';
+
   }
 
   submit() {
-    this.loginService.loginUser(this.user).subscribe(response =>console.log(response))
     console.log(this.user);
+    this.loginService.loginUser(this.user).subscribe(response =>console.log(response))
   }
 }
