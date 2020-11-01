@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {RegisterAccount} from '../Model/register-account';
 import {AccountStatus} from '../Model/account-status';
 import {AccountType} from '../Model/accountType';
@@ -42,5 +42,12 @@ export class RegisterComponent implements OnInit {
   onSubmit() {
     this.registerService.registerUser(this.user).subscribe(response =>console.log(response))
     console.log(this.user);
+  }
+
+  statusAccount() {
+    if (this.isPrivate == false)
+      this.user.accountType = AccountType.PUBLIC;
+    else this.user.accountType = AccountType.PRIVAT;
+
   }
 }

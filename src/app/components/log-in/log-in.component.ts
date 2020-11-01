@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {LogInAccount} from '../Model/log-in-account';
+import {LoginServiceService} from '../../service/login-service.service';
 
 
 @Component({
@@ -8,11 +9,19 @@ import {LogInAccount} from '../Model/log-in-account';
   styleUrls: ['./log-in.component.css']
 })
 export class LogInComponent implements OnInit {
-  user: LogInAccount;
-
-  constructor() { }
+  user:LogInAccount = {
+    email:'',
+    password:''
+  };
+  constructor(private loginService: LoginServiceService) { }
 
   ngOnInit(): void {
+  this.user.email='';
+  this.user.password='';
   }
 
+  submit() {
+    this.loginService.loginUser(this.user).subscribe(response =>console.log(response))
+    console.log(this.user);
+  }
 }
