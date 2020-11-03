@@ -7,6 +7,7 @@ import {LogInAccount} from '../components/Model/log-in-account';
   providedIn: 'root'
 })
 export class LoginServiceService {
+  baseUrl = 'http://localhost:8080/api/login';
 
   constructor(private http: HttpClient) {
   }
@@ -14,6 +15,6 @@ export class LoginServiceService {
   loginUser(user: LogInAccount): Observable<LogInAccount> {
     /** POST: add a new user to the database */
     console.log(JSON.stringify(user));
-    return this.http.post<LogInAccount>(`http://localhost:8080/api/login`, JSON.stringify(user));
+    return this.http.post<LogInAccount>(this.baseUrl, user);
   }
 }
