@@ -5,7 +5,6 @@ import {AccountType} from '../Model/accountType';
 import {RegisterService} from '../../service/register.service';
 import {Avatar} from '../Model/avatar';
 
-
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -16,18 +15,18 @@ export class RegisterComponent implements OnInit {
   accountType: AccountType = AccountType.PUBLIC;
   avatar: Avatar = {path: ''};
   isPrivate: boolean;
+  imagePath = "assets/img/bussiness-man.png";
 
- user: RegisterAccount = {
-   username : '',
-   email : '',
-   password : '',
-   confirmPassword : '',
-   avatar: this.avatar,
-   displayName : '',
-   accountStatus : this.accountStatus,
-   accountType : this.accountType
- };
-
+  user: RegisterAccount = {
+    username: '',
+    email: '',
+    password: '',
+    confirmPassword: '',
+    avatar: this.avatar,
+    displayName: '',
+    accountStatus: this.accountStatus,
+    accountType: this.accountType
+  };
 
   constructor(private  registerService: RegisterService) {
 
@@ -38,7 +37,7 @@ export class RegisterComponent implements OnInit {
     this.user.email = '';
     this.user.password = '';
     this.user.confirmPassword = '';
-    this.user.avatar.path = '';
+    this.user.avatar.path = this.imagePath;
     this.user.displayName = '';
     this.accountStatus = AccountStatus.ACTIVE;
     this.user.accountType = this.accountType;
@@ -50,11 +49,7 @@ export class RegisterComponent implements OnInit {
     console.log(this.user);
   }
 
-  statusAccount(): void {
-    if (this.isPrivate === false) {
-      this.user.accountType = AccountType.PUBLIC;
-    } else {
-      this.user.accountType = AccountType.PRIVAT;
-    }
+  setAvatar(): void {
+    this.avatar.path = this.imagePath
   }
 }

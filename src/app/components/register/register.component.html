@@ -5,9 +5,9 @@
       <mat-card-title>RegisterAccount</mat-card-title>
     </mat-card-header>
     <mat-card-content>
-
+      <img mat-card-avatar src="{{avatar.path}}">
       <mat-form-field class="example-full-width">
-        <input type="text"  [(ngModel)]="user.username"
+        <input type="text" [(ngModel)]="user.username"
                [ngModelOptions]="{standalone: true}" matInput placeholder="Username">
       </mat-form-field>
       <mat-form-field class="example-full-width">
@@ -16,26 +16,22 @@
       </mat-form-field>
 
       <mat-form-field class="example-full-width">
-        <input matInput  [(ngModel)]="user.email" [ngModelOptions]="{standalone: true}" matInput placeholder="Email">
+        <input matInput [(ngModel)]="user.email" [ngModelOptions]="{standalone: true}" placeholder="Email">
       </mat-form-field>
 
       <mat-form-field class="example-full-width">
-        <input [(ngModel)]="user.password" [ngModelOptions]="{standalone: true}" type="password" matInput placeholder="Password">
+        <input [(ngModel)]="user.password" [ngModelOptions]="{standalone: true}" type="password" matInput
+               placeholder="Password">
       </mat-form-field>
 
       <mat-form-field class="example-full-width">
         <input [(ngModel)]="user.confirmPassword" [ngModelOptions]="{standalone: true}" type="password" matInput
                placeholder="Confirm Password">
       </mat-form-field>
-     <!-- <mat-form-field class="example-full-width">
-        <mat-slide-toggle (click)="statusAccount()" [(ngModel)]="isPrivate" >Private
-        </mat-slide-toggle>
-      </mat-form-field>-->
+
       <button type='submit' (click)="onSubmit()" mat-stroked-button color="black" class="btn-block"
               style="width: fit-content">RegisterAccount
       </button>
-
-
     </mat-card-content>
   </mat-card>
 </div>
