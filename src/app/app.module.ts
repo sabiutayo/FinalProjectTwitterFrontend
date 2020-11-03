@@ -9,10 +9,10 @@ import {FlexLayoutModule} from '@angular/flex-layout';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {AppRoutingModule} from './app-routing.module';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
-import {HttpClientModule} from '@angular/common/http';
 import {LoginServiceService} from './service/login-service.service';
 import {RegisterService} from './service/register.service';
 import {HomeComponent} from './components/home/home.component';
+import {HttpClientModule} from '@angular/common/http';
 
 
 @NgModule({

@@ -6,7 +6,6 @@ export interface  RegisterAccount {
   username: string;
   displayName: string;
   email: string;
-  status: string;
   password: string;
   accountType: AccountType;
   accountStatus: AccountStatus;

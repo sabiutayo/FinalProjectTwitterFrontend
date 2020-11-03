@@ -5,18 +5,18 @@
       <mat-card-title>RegisterAccount</mat-card-title>
     </mat-card-header>
     <mat-card-content>
+
       <mat-form-field class="example-full-width">
-        <input type="text" class="form-control" [defaultValue]="" [(ngModel)]="user.username"
+        <input type="text"  [(ngModel)]="user.username"
                [ngModelOptions]="{standalone: true}" matInput placeholder="Username">
       </mat-form-field>
-
       <mat-form-field class="example-full-width">
         <input [(ngModel)]="user.displayName" [ngModelOptions]="{standalone: true}" matInput
                placeholder="Display Name">
       </mat-form-field>
 
       <mat-form-field class="example-full-width">
-        <input [(ngModel)]="user.email" [ngModelOptions]="{standalone: true}" matInput placeholder="Email">
+        <input matInput  [(ngModel)]="user.email" [ngModelOptions]="{standalone: true}" matInput placeholder="Email">
       </mat-form-field>
 
       <mat-form-field class="example-full-width">
@@ -34,6 +34,8 @@
       <button type='submit' (click)="onSubmit()" mat-stroked-button color="black" class="btn-block"
               style="width: fit-content">RegisterAccount
       </button>
+
+
     </mat-card-content>
   </mat-card>
 </div>

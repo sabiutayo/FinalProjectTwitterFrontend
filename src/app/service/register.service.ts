@@ -8,16 +8,12 @@ import {RegisterAccount} from '../components/Model/register-account';
   providedIn: 'root'
 })
 export class RegisterService {
+  baseUrl = 'http://localhost:8080/api/register';
 
   constructor(private http: HttpClient) {
   }
 
-
-  registerUser(user: RegisterAccount):Observable<RegisterAccount> {
-
-    /** POST: add a new user to the database */
-    console.log(JSON.stringify(user))
-    return this.http.post<RegisterAccount>(`http://localhost:8080/api/register`,  JSON.stringify(user));
-
+  registerUser(user: RegisterAccount): Observable<RegisterAccount> {
+    return this.http.post<RegisterAccount>(this.baseUrl, user);
   }
 }
