@@ -4,34 +4,55 @@
     <mat-card-header>
       <mat-card-title>RegisterAccount</mat-card-title>
     </mat-card-header>
+
     <mat-card-content>
       <img mat-card-avatar src="{{avatar.path}}">
+
       <mat-form-field class="example-full-width">
-        <input type="text" [(ngModel)]="user.username"
-               [ngModelOptions]="{standalone: true}" matInput placeholder="Username">
+        <input type="text" formControlName="username" class="form-control" matInput placeholder="Username">
       </mat-form-field>
+
+      <div style="margin-top: 10px;">
+        <div *ngIf="registerForm.get('username').status === 'PENDING'">
+          Checking the availability of username...
+        </div>
+        <div *ngIf="registerForm.get('username').status === 'VALID'" style="color: green; font-weight: 600;">
+          Username is available!
+        </div>
+
+        <div *ngIf="registerForm.get('username').errors && registerForm.get('username').errors.usernameTaken" style="color: red; font-weight: 600;">
+          Sorry, this username is already taken!
+        </div>
+      </div>
+
       <mat-form-field class="example-full-width">
-        <input [(ngModel)]="user.displayName" [ngModelOptions]="{standalone: true}" matInput
-               placeholder="Display Name">
+        <input type="text" formControlName="displayname" class="form-control" matInput placeholder="Display Name">
       </mat-form-field>
 
       <mat-form-field class="example-full-width">
-        <input matInput [(ngModel)]="user.email" [ngModelOptions]="{standalone: true}" placeholder="Email">
+        <input type="email" formControlName="email" class="form-control" matInput placeholder="Email">
+        <div style="margin-top: 10px;">
+          <div *ngIf="registerForm.get('email').status === 'PENDING'">
+            Checking the availability of username...
+          </div>
+          <div *ngIf="registerForm.get('email').status === 'VALID'" style="color: green; font-weight: 600;">
+            Success, email address is not registered!
+          </div>
+
+          <div *ngIf="registerForm.get('email').errors && registerForm.get('email').errors.emailTaken" style="color: red; font-weight: 600;">
+            Sorry, this email address is already registered!
+          </div>
+        </div>
       </mat-form-field>
 
       <mat-form-field class="example-full-width">
-        <input [(ngModel)]="user.password" [ngModelOptions]="{standalone: true}" type="password" matInput
-               placeholder="Password">
+        <input type="password" formControlName="password" class="form-control" matInput placeholder ="Password between 8-20 characters without spaces">
       </mat-form-field>
 
       <mat-form-field class="example-full-width">
-        <input [(ngModel)]="user.confirmPassword" [ngModelOptions]="{standalone: true}" type="password" matInput
-               placeholder="Confirm Password">
+        <input type="password" formControlName="confirmPassword" class="form-control" matInput placeholder="Re-enter your password">
       </mat-form-field>
-
-      <button type='submit' (click)="onSubmit()" mat-stroked-button color="black" class="btn-block"
-              style="width: fit-content">RegisterAccount
-      </button>
+      <button mat-stroked-button color="black" class="btn-block" (click)="onRegister()">Register</button>
     </mat-card-content>
   </mat-card>
 </div>
