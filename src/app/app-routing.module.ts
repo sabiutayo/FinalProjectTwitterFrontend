@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './components/login/login.component';
-import { AuthGuard } from './auth.guard';
 import { RegisterComponent } from './components/register/register.component';
 import { FeedsComponent } from './components/feeds/feeds.component';
 import { MyTweetsComponent } from './components/my-tweets/my-tweets.component';
@@ -25,7 +24,6 @@ const routes: Routes = [{
 }, {
   path: 'users',
   component: ShellComponent,
-  canActivate: [AuthGuard],
   children: [{
     path: 'me',
     component: MeComponent,

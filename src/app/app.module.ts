@@ -8,7 +8,6 @@ import {RegisterComponent} from './components/register/register.component';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {AppRoutingModule} from './app-routing.module';
-import {CookieService} from 'ngx-cookie-service';
 import {NavbarComponent} from './components/navbar/navbar.component';
 import { TweetComponent } from './components/tweet/tweet.component';
 import { BioComponent } from './components/bio/bio.component';
@@ -19,7 +18,6 @@ import { SearchComponent } from './components/search/search.component';
 import { MeComponent } from './components/me/me.component';
 import { OthersComponent } from './components/others/others.component';
 import { ShellComponent } from './components/shell/shell.component';
-import { JwtInterceptorService } from './service/jwt-interceptor.service';
 import { ErrorInterceptorService } from './service/error-interceptor.service';
 import { SearchTweetsComponent } from './components/search-tweets/search-tweets.component';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
@@ -59,8 +57,6 @@ import {HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
   ],
   providers: [
-    CookieService,
-    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptorService, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptorService, multi: true },
     LoginService, RegisterService],
   bootstrap: [AppComponent],
