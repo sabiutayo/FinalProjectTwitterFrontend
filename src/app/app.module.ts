@@ -17,7 +17,6 @@ import { MyTweetsComponent } from './components/my-tweets/my-tweets.component';
 import { SearchComponent } from './components/search/search.component';
 import { MeComponent } from './components/me/me.component';
 import { OthersComponent } from './components/others/others.component';
-import { ShellComponent } from './components/shell/shell.component';
 import { ErrorInterceptorService } from './service/error-interceptor.service';
 import { SearchTweetsComponent } from './components/search-tweets/search-tweets.component';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
@@ -40,7 +39,6 @@ import {HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
     SearchComponent,
     MeComponent,
     OthersComponent,
-    ShellComponent,
     SearchTweetsComponent
   ],
   imports: [

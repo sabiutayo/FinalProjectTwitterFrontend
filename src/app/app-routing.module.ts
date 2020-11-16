@@ -7,7 +7,6 @@ import { MyTweetsComponent } from './components/my-tweets/my-tweets.component';
 import { SearchComponent } from './components/search/search.component';
 import { MeComponent } from './components/me/me.component';
 import { OthersComponent } from './components/others/others.component';
-import { ShellComponent } from './components/shell/shell.component';
 import { DataResolverService } from './service/data-resolver.service';
 import { SearchTweetsComponent } from './components/search-tweets/search-tweets.component';
 
@@ -23,7 +22,6 @@ const routes: Routes = [{
   component: RegisterComponent
 }, {
   path: 'users',
-  component: ShellComponent,
   children: [{
     path: 'me',
     component: MeComponent,
