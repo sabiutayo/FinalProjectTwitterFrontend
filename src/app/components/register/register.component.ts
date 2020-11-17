@@ -62,7 +62,6 @@ export class RegisterComponent implements OnInit {
         const { username, password, email, displayname, accountType , accountStatus, avatar, confirmPassword } = this.registerForm.value;
         const registerData = new RegisterForm(username, password, email, displayname, accountType , accountStatus, avatar, confirmPassword);
         const userData: UserData = await  this.httpService.registerUser(registerData);
-        this.loginService.setCookie(userData.token);
         await this.router.navigateByUrl('users/me');
       } catch (e) {
         console.log(e);

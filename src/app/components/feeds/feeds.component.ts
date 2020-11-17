@@ -30,10 +30,6 @@ export class FeedsComponent implements OnInit {
   }
 
   loadMore() {
-    // console.log('**************************')
-    // console.log(this.previous.length)
-    // console.log(this.previousClickValue)
-    // console.log('**************************')
     if(this.previous.length !== this.previousClickValue){
       this.loadCounter += 5;
       this.previousClickValue = this.previous.length;

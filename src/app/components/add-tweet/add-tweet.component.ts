@@ -27,18 +27,18 @@ export class AddTweetComponent implements OnInit {
     const tweet: string = this.tweetForm.value.tweet;
     let str = '';
     let add = false;
-    for (let i=0; i < tweet.trim().length; i += 1){
-      if(add) str += tweet.charAt(i);
-      if(tweet.charAt(i) === '#' && !add){
+    for (let i = 0; i < tweet.trim().length; i += 1){
+      if (add) str += tweet.charAt(i);
+      if (tweet.charAt(i) === '#' && !add){
         add = true;
-        if(add) str += tweet.charAt(i);
-      }else if(tweet.charAt(i) === ' '){
+        if (add) str += tweet.charAt(i);
+      }else if (tweet.charAt(i) === ' '){
         add = false;
       }
     }
     const hasTags: string[] = [];
     str.trim().split('#').filter(e => {
-      if(!hasTags.includes(e) && e !== '') hasTags.push(e);
+      if (!hasTags.includes(e) && e !== '') hasTags.push(e);
     });
     try {
       await this.httpService.addTweet(tweet, hasTags);

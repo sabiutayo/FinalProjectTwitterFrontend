@@ -21,8 +21,8 @@ export class BioComponent implements OnInit {
   show$ = this.subject.asObservable();
 
 
-  private subjectUpload: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false)
-  showUpload$ = this.subjectUpload.asObservable()
+  private subjectUpload: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+  showUpload$ = this.subjectUpload.asObservable();
 
   fileData: File = null;
   previewUrl: any = null;
@@ -33,7 +33,6 @@ export class BioComponent implements OnInit {
   constructor(private httpService: HttpService, private ngZone: NgZone) { }
 
   ngOnInit() {
-    // console.log(this.bio)
     this.subject.next(this.bio.following);
   }
 

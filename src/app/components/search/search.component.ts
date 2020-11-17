@@ -24,7 +24,6 @@ export class SearchComponent implements OnInit {
       switchMap((query: string) => {
         if (query.trim().length >= 4) {
           return this.httpService.search(query.trim()).pipe(
-            // tap(console.log),
             map((element) =>
               element.map(a => {
                 const  obj = { ...a };
@@ -36,8 +35,6 @@ export class SearchComponent implements OnInit {
         }
         return [];
       }));
-      // .subscribe(s => console.log(s))
-
   constructor(private httpService: HttpService, private router: Router) { }
 
   ngOnInit() {  }

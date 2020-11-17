@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     if(this.loginService.checkLoggedIn()){
-      console.log('navigating dirrectly');
+      console.log('navigating directly');
       this.router.navigateByUrl('users/me');
     }
   }
@@ -36,7 +36,6 @@ export class LoginComponent implements OnInit {
     try {
       const data: UserData = await this.httpService.loginUser(loginData);
       this.loginError = false;
-      // this.loginService.setCookie(data.token)
       this.loginService.setLoginUser(data);
       await this.router.navigateByUrl('users/me');
     } catch (e) {

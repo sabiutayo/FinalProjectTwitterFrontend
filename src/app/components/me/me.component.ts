@@ -13,7 +13,6 @@ export class MeComponent implements OnInit {
 
   personalData$ = this.httpService.myDetailsAppendedWithFollowers$
   .pipe(
-    // tap(console.log),
     shareReplay(),
     map((element) => {
       const obj = { ...element};

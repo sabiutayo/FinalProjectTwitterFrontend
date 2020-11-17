@@ -1,6 +1,5 @@
 <div class="searchbox">
-    <small id="emailHelp" class="form-text text-muted">Type at least the first 4 characters of the username to search
-        people.</small>
+    <small id="emailHelp" class="form-text text-muted">Type at least the first 4 characters of the username to start searching.</small>
     <input type="text" [formControl]="queryField" class="form-control form-control-lg" placeholder="Search username here" autofocus>
 </div>
 <div *ngIf="change$ | async as userData" style="margin: 50px;">
