@@ -32,7 +32,7 @@ export class HttpService {
     this.getAllFollowing$,
     this.getMyFollower$
   ).pipe(
-    map(([PersonalData, Followings, Qwerty]) => {
+    map(([PersonalData,Followings,Qwerty]) => {
       const obj = { ...PersonalData };
       obj.followingCount = Followings.length;
       obj.followersCount = Qwerty.followers;
@@ -42,19 +42,19 @@ export class HttpService {
 
   constructor(private http: HttpClient) { }
 
-  async loginUser(logInAccount: LoginForm) {
-    return await this.http.post<UserData>(this.connectionURL + 'users/login', logInAccount).toPromise();
+  async loginUser(logInAccount: LoginForm): Promise <UserData> {
+    return await this.http.post<UserData>(this.connectionURL + 'api/login', logInAccount).toPromise();
   }
 
-  async logoutUser() {
-    return await this.http.post<any>(this.connectionURL + 'users/logout', undefined).toPromise();
+  async logoutUser(): Promise<any> {
+    return await this.http.post<any>(this.connectionURL + 'api/logout', undefined).toPromise();
   }
 
-  chechUsername(username: string) {
+  chechUsername(username: string): Observable<string> {
     return this.http.post<string>(this.connectionURL + 'checkUserNameTaken', { username });
   }
 
-  checkEmailAddress(email: string) {
+  checkEmailAddress(email: string): Observable<string> {
     return this.http.post<string>(this.connectionURL + 'checkUserNameTaken', { email });
   }
 
@@ -141,7 +141,7 @@ export class HttpService {
   public uploadImage(image: File){
     const formData = new FormData();
     formData.append('avatar', image);
-    return this.http.post( this.connectionURL + 'users/me/avatar', formData).toPromise();
+    return this.http.post( this.connectionURL + 'api/me/avatar', formData).toPromise();
   }
 }
 
