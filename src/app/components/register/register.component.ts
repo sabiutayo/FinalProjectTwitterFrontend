@@ -62,7 +62,7 @@ export class RegisterComponent implements OnInit {
         const { username, password, email, displayname, accountType , accountStatus, avatar, confirmPassword } = this.registerForm.value;
         const registerData = new RegisterForm(username, password, email, displayname, accountType , accountStatus, avatar, confirmPassword);
         const userData: UserData = await  this.httpService.registerUser(registerData);
-        await this.router.navigateByUrl('users/me');
+        await this.router.navigateByUrl('api/me');
       } catch (e) {
         console.log(e);
         alert('Something went wrong while creating user!');

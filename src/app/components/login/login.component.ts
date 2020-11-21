@@ -23,14 +23,14 @@ export class LoginComponent implements OnInit {
 
   constructor(private httpService: HttpService, private router: Router, private loginService: LoginService) { }
 
-  ngOnInit() {
-    if(this.loginService.checkLoggedIn()){
+  ngOnInit(): void {
+    if (this.loginService.checkLoggedIn()){
       console.log('navigating directly');
       this.router.navigateByUrl('users/me');
     }
   }
 
-  async onSubmit() {
+  async onSubmit(): Promise<void> {
     const { email, password } = this.loginForm.value;
     const loginData = new LoginForm(email, password);
     try {
@@ -48,7 +48,7 @@ export class LoginComponent implements OnInit {
     this.loginForm.reset();
   }
 
-  switchToRegister(){
+  switchToRegister(): void{
     this.router.navigateByUrl('register');
   }
 

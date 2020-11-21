@@ -7,11 +7,15 @@
 
     <mat-card-content>
       <mat-form-field class="example-full-width">
+        <div [formGroup]="loginForm">
         <input type="email" formControlName="email" matInput placeholder="Email">
+        </div>
       </mat-form-field>
 
       <mat-form-field class="example-full-width">
+        <div [formGroup]="loginForm">
         <input type="password" formControlName="password" matInput placeholder="Password">
+        </div>
       </mat-form-field>
     </mat-card-content>
     <div *ngIf="loginError" class="loginErrorMessage">Incorrect Username or Password</div>
