@@ -25,13 +25,25 @@ const routes: Routes = [{
   children: [{
     path: 'me',
     component: MeComponent,
-    children: [
-      {path: 'feeds', component: FeedsComponent},
-      {path: 'myTweets', component: MyTweetsComponent},
-      {path: 'search', component: SearchComponent},
-      {path: 'searchTweet', component: SearchTweetsComponent}
-      ]},
-    {path: 'others/:id', resolve: { others: DataResolverService }, component: OthersComponent}
+    children: [{
+      path: 'feeds',
+      component: FeedsComponent
+    },{
+      path: 'myTweets',
+      component: MyTweetsComponent
+    },{
+      path: 'search',
+      component: SearchComponent
+    },{
+      path: 'searchTweet',
+      component: SearchTweetsComponent
+    }
+    ]
+  },{
+    path: 'others/:id',
+    resolve: { others: DataResolverService },
+    component: OthersComponent
+  }
   ]
 }];
 

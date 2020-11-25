@@ -1,4 +1,10 @@
 export class UserData {
+  token: string;
+  user: {
+    createdAt: string;
     email: string;
-    password: string;
+    updatedAt: string;
+    username: string;
+    id: string;
+  };
 }

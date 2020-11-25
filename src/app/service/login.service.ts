@@ -13,7 +13,7 @@ export class LoginService {
   }
 
   checkLoggedIn(): boolean {
-    if (this.currentUser) {
+    if (this.currentUser && this.currentUser.token) {
       return true;
     } else {
     return false;
@@ -22,7 +22,7 @@ export class LoginService {
 
   setLoginUser(userData: UserData): void {
     this.currentUser = userData;
-    // this.setUserId(this.currentUser.user.id);
+    this.setUserId(this.currentUser.user.id);
   }
 
   logout(): void {
