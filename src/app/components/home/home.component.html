@@ -1,0 +1,42 @@
+<mat-toolbar color="primary" class="app-header" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+  <span class="nav-tool-items">
+    <div>Hello MariusTarnaru<output (message)="getUser()" ></output></div>
+    <a mat-button routerLink="logout" routerLinkActive="active">Log out</a>
+  </span>
+</mat-toolbar>
+<div style="position: relative; left: 20%"><br><br><br><br>
+
+    <div *ngFor="let entry of entries$ | async">
+      <h2 routerLink="{{entry.entryId}}">
+         {{entry.content}}<br>
+            <div style="position: relative; height: 0; padding-bottom: 35%">
+                  <iframe width="640" height="480" [src]="sanitizer.bypassSecurityTrustResourceUrl(entry.link)"
+                          frameborder="0" allowfullscreen>
+                    Your browser does not support the video tag.
+                  </iframe>
+            </div>
+      </h2>
+      <div style="font-size: larger; color: #3b5998">MyPost picture</div>
+      <p> <img width="640" height="480" controls src="{{entry.imagePath}}"></p>
+
+      <section style="position: relative; top: 50%; left: 0%">
+        <div class="label">  </div>
+        <div class="button-row">
+          <div class="flex-container">
+            <button mat-icon-button color="primary" aria-label="icon button with a home icon">Home
+              <mat-icon>home</mat-icon>
+            </button>
+            <button mat-icon-button color="accent" aria-label="icon button with a menu icon">Comments
+              <mat-icon>menu</mat-icon>
+            </button>
+            <button mat-icon-button color="warn" aria-label="icon button with a heart icon">Like
+              <mat-icon>favorite</mat-icon>
+            </button>
+            <button mat-icon-button color="primary" aria-label="icon button with a open in new tab icon">Follow
+              <mat-icon>open_in_new</mat-icon>
+            </button>
+          </div>
+        </div>
+      </section><br>
+    </div>
+  </div>
